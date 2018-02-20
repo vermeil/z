@@ -1,0 +1,75 @@
+*{margin:0;padding:0;list-style:none;font-family:arial,Microsoft YaHei}
+        
+        
+@media screen and (max-width: 768px){
+.T{display: none !important; }
+.banner{ width: 100% !important; left: 0 !important; margin-left: 0 !important;top: 20% !important;}
+/*.sou{ left: 240px !important; width: 322px !important;}*/
+/*.sou{width:90% !important; left:5% !important; border: 1px solid #000 !important;}*/
+.sou{width: calc(100% - 32px) !important; left: 16px !important; border: 1px solid #000 !important;}    
+.sou .Tsou{width:calc(100% - 92px) !important;height:34px !important;font-size: 18px !important;    border: 0px solid #000 !important;}
+.sou .Bsou{width:80px !important;height:46px !important; border-left: 1px solid #e8e8e8 !important; background: #fff !important; color: #38f !important;}
+.top .da{display: none;}
+/*.div1{left: calc((100% - 67%)/2) !important;}*/
+.div1{left:0 !important; margin-left: 0 !important}
+/*.div1 ul{ width:calc(90% - 2px) !important; left: 5% !important;}原*/
+.div1 ul{ width:100% !important; border: 1px solid rgb(248,248,248) !important; margin-top: 3px;}
+/*.div1 ul li{border-bottom:#f7f7f7 solid 1px;width: 96.5% !important;}原*/
+.div1 ul li{border-bottom:#f1f1f1 solid 1px;width: 100% !important;padding: 10px 0 10px 0!important; }
+.div1 ul i{margin-right: 0 !important;}
+.div1 ul i:after{color:#a6a6a6 !important;  margin:0 16px 0 0 !important;content: "↖"!important; font-size: 15px !important;} 
+.div1 ul li:before{color:#a6a6a6 !important; margin:0 10px 0 16px !important;content: "🔍"!important; font-size: 15px !important;} 
+
+.logo{width:185px !important;height:57px !important; margin-left: -93px !important;transition-duration:1s;transition-delay:.5s;}
+.topt a{margin-left:8px !important; text-decoration: none;}
+
+}
+        
+img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;}
+.topL{display:none}
+.topL ul{ position: fixed; right: 53px; bottom: 253px; width:100px; color:#fff;font-size:13px;text-align:center;}
+.topL img{z-index:-998;position:fixed;right:14px;bottom:0px;height:446px;width:223px}
+.top{z-index:200;float:right;position:fixed;right:10px;top:10px;font-size:13px}
+.topt{float:right}
+.topt a{margin-left:15px;color:#333;font-weight:700;font-family:SimHei}
+.topt a:hover{color:#00c}
+.top .a1{color:#333;font-family:SimSun;font-weight:100}
+.top .da{float:right}
+.top .da .box{right:10px;width:60px;height:21px;margin-top:-3px;margin-left:19px;margin-right:12px;overflow:hidden;color:#fff;line-height:23px;text-align:center;font-weight:100;font-size:13px;border-radius:2px;background:#38f}
+.top .da .box a{text-decoration:none;color:#fff;font-weight:100}
+.top .da .box a:hover{color:#00c;font-weight:100}
+.top .box:hover{color:#00c;font-weight:100;cursor:pointer}
+.banner{z-index:100;position:absolute;left:50%;right:0;top:14%;width:50%;height:300px;margin-left:-25%}
+.bxy{z-index:0;position:absolute;left:0;right:0;bottom:50px}
+.xy{display:none;position:absolute;left:50%;margin-left:-28px}
+.xy img{position:absolute;margin:0 auto}
+.xy .xya{z-index:1;position:absolute;top:66px;min-width:100px;color:#666;font-size:14px;font-weight:700}
+.butt{display:none;margin-left:-28px;padding-top:95px;text-align:center}
+.butt .p1{text-align:center;font-size:12px}
+.butt .p1 a{padding-left:30px;color:#999;font-weight:100}
+.butt .p2{margin-top:6px;text-align:center;font-size:12px}
+.butt .p2 a{color:#999;font-weight:100}
+.butt .p2 i{width:14px;height:17px;display:inline-block;overflow:hidden;background:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png) no-repeat;_background-image:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_d5b04cc.gif)}
+.butt .p2 i[ico='two']{background-position:-623px -96px;margin-bottom: -3px}
+.butt .p2 i[ico='one']{background-position:-600px -96px;position:relative;top:3px}
+.div1{position:relative;left:50%;margin-left:-310px}
+.logo{margin-bottom: 15px;transition-duration:1s;transition-delay:.5s;position:relative;top:0px;left:50%;width:270px;height:129px;margin-left:-135px;pointer-events:initial}
+.div1 ul{display:none;z-index:10;position:absolute;width:539px;background:#fff;border:1px solid #ccc}
+.div1 ul li{z-index:10;width:529px;height:20px;padding:5px;cursor:pointer;*zoom:1}
+.div1 ul i{z-index:1000;float:right;height:20px;*margin-top:-20px;margin-right:5px;color:#F58C90}
+.div1 ul i:after{content: "z";}
+.div1 ul i[none]:after{color:#FCBC4B}
+.div1 ul i[nthree]:after{color:#A1D958}
+.div1 ul i[ntwo]:after{color:#7CBCD0}
+.sou{position:relative;width:650px}
+.sou .Tsou{z-index:20;position:relative;float:left;width:529px;height:28px;padding:5px;font-size:16px;border:1px solid #ccc;line-height:28px}
+.sou .Tsou:hover{border-color:#999}
+.sou .Tsou:focus{outline:none;border-color:#4791ff}
+input::-ms-clear{display:none}
+.T{z-index:200;background:#fff;float:left;position:absolute;right:122px;width:20px;height:20px;margin-top:12px;overflow-y:hidden}
+.T img{width:20px;height:40px}
+/*.T img:hover{z-index:10;float:left;overflow-y:hidden;right:125px;width:20px;height:40px;margin-top:-20px;padding-bottom:20px;cursor:pointer}*/
+.ti{z-index:10;float:left;overflow-y:hidden;right:125px;width:20px;height:38px;margin-top:-22px;padding-bottom:20px;cursor:pointer}
+.sou .Bsou{width:100px;height:40px;color:#fff;background:#3385ff;border-style:none;font-size:15px;border-radius:1px;cursor:pointer}
+.Bsou:hover{background:#317ef3}
+.active{background:#F0F0F0}
