@@ -257,7 +257,6 @@ function dcb(data){
         var month = date.getMonth()+1+'月';
     console.log("%c"+month+Str.date+"     现在的温度:"+WenD+"℃"+"     温馨提示:"+GanM,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');//控制台提示
      
-    
     //日期      date
     //最高温度  high
     //风级      fengli  
@@ -326,6 +325,7 @@ window.onload = function(){                     //ie 判断
     // zhh.New();                               //新闻 预加载
     txt.value=''; 
     zhh.city(); 
+
     if(!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1)
     {                  
         txt.onfocus = function(){
@@ -345,9 +345,8 @@ window.onload = function(){                     //ie 判断
        // }
     }
     else
-    {   
-        // zhh.city();                     //编码失败  取消天气预报
-
+    {  
+        document.body.addEventListener('input', POWERMODE);
         document.addEventListener('visibilitychange',function(){ //title提示
             document.title = document.hidden ? '众里寻她千百度,蓦然回首' : '那人却在灯火阑珊处';
             if(!document.hidden){
