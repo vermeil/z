@@ -1,4 +1,4 @@
-*{margin:0;padding:0;list-style:none;font-family:arial,Microsoft YaHei}
+﻿*{margin:0;padding:0;list-style:none;font-family:arial,Microsoft YaHei}
         
         
 @media screen and (max-width: 768px){
@@ -7,8 +7,8 @@
 /*.sou{ left: 240px !important; width: 322px !important;}*/
 /*.sou{width:90% !important; left:5% !important; border: 1px solid #000 !important;}*/
 .sou{width: calc(100% - 32px) !important; left: 16px !important; border: 1px solid #000 !important;}    
-.sou .Tsou{width:calc(100% - 92px) !important;height:34px !important;font-size: 18px !important;    border: 0px solid #000 !important;}
-.sou .Bsou{width:80px !important;height:46px !important; border-left: 1px solid #e8e8e8 !important; background: #fff !important; color: #38f !important;}
+.sou .Tsou{width:calc(100% - 92px) !important;font-size: 18px !important; padding:7px 0 7px 6px !important;   border: 0px solid #000 !important;}
+.sou .Bsou{width:80px !important;height:44px !important; border-left: 1px solid #e8e8e8 !important; background: #fff !important; color: #38f !important;}
 .top .da{display: none;}
 /*.div1{left: calc((100% - 67%)/2) !important;}*/
 .div1{left:0 !important; margin-left: 0 !important}
@@ -41,9 +41,10 @@ img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;}
 .top .box:hover{color:#00c;font-weight:100;cursor:pointer}
 .banner{z-index:100;position:absolute;left:50%;right:0;top:14%;width:50%;height:300px;margin-left:-25%}
 .bxy{z-index:0;position:absolute;left:0;right:0;bottom:50px}
-.xy{display:none;position:absolute;left:50%;margin-left:-28px}
-.xy img{position:absolute;margin:0 auto}
-.xy .xya{z-index:1;position:absolute;top:66px;min-width:100px;color:#666;font-size:14px;font-weight:700}
+.xy{display:none;position:absolute;left:50%;margin-left:-28px;}
+.xy img{margin:0 auto;}
+.xy .xya{margin:3px 0 0;z-index:1;text-align: center}
+.xy .xya a{line-height: 23px;min-width:100px;color:#666;font-size:14px;font-weight:700;}
 .butt{display:none;margin-left:-28px;padding-top:95px;text-align:center}
 .butt .p1{text-align:center;font-size:12px}
 .butt .p1 a{padding-left:30px;color:#999;font-weight:100}
