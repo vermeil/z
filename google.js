@@ -1,4 +1,4 @@
-
+﻿
  'use strict'                            //严格模式
 
 function getByClass(sClass,oParent)            //兼容ie6 的getElementsByTagName ..多class 
@@ -346,7 +346,7 @@ window.onload = function(){                     //ie 判断
     }
     else
     {  
-        document.body.addEventListener('input', POWERMODE);
+       // document.body.addEventListener('input', POWERMODE);
         document.addEventListener('visibilitychange',function(){ //title提示
             document.title = document.hidden ? '众里寻她千百度,蓦然回首' : '那人却在灯火阑珊处';
             if(!document.hidden){

@@ -1,4 +1,4 @@
-*{margin:0;padding:0;list-style:none;font-family:arial,Microsoft YaHei}
+﻿*{margin:0;padding:0;list-style:none;font-family:arial,Microsoft YaHei}
         
         
 @media screen and (max-width: 768px){
@@ -15,10 +15,10 @@
 /*.div1 ul{ width:calc(90% - 2px) !important; left: 5% !important;}原*/
 .div1 ul{ width:100% !important; border: 1px solid rgb(248,248,248) !important; margin-top: 3px;}
 /*.div1 ul li{border-bottom:#f7f7f7 solid 1px;width: 96.5% !important;}原*/
-.div1 ul li{border-bottom:#f1f1f1 solid 1px; width:calc(100% - 25px) !important;padding: 5px !important; margin: 10px 0 10px 6px !important; background-image: url('image/sou1.png') !important;background-size: 30px 30px !important; background-repeat: no-repeat !important;}
-.div1 ul i{padding-right: 5px !important;background-image: url('image/sou2.png') !important;background-size: 30px 30px !important;background-repeat: no-repeat !important; margin-top:-4px!important;}
-.div1 ul i:after{color:#a6a6a6 !important; margin-right:16px !important;content: ""!important; } 
-.div1 ul li:before{color:#a6a6a6 !important;align:bottom !important; margin-right:30px !important;content: ""!important; } 
+.div1 ul li{border-bottom:#f1f1f1 solid 1px;width: 100% !important;padding: 10px 0 10px 0!important; }
+.div1 ul i{margin-right: 0 !important;}
+.div1 ul i:after{color:#a6a6a6 !important;  margin:0 16px 0 0 !important;content: "↖"!important; font-size: 15px !important;} 
+.div1 ul li:before{color:#a6a6a6 !important; margin:0 10px 0 16px !important;content: "🔍"!important; font-size: 15px !important;} 
 
 .logo{width:185px !important;height:57px !important; margin-left: -93px !important;transition-duration:1s;transition-delay:.5s;}
 .topt a{margin-left:8px !important; text-decoration: none;}
@@ -72,5 +72,7 @@ input::-ms-clear{display:none}
 /*.T img:hover{z-index:10;float:left;overflow-y:hidden;right:125px;width:20px;height:40px;margin-top:-20px;padding-bottom:20px;cursor:pointer}*/
 .ti{z-index:10;float:left;overflow-y:hidden;right:125px;width:20px;height:38px;margin-top:-22px;padding-bottom:20px;cursor:pointer}
 .sou .Bsou{width:100px;height:40px;color:#fff;background:#3385ff;border-style:none;font-size:15px;border-radius:1px;cursor:pointer}
+.Bsou:hover{background:#317ef3}
+.active{background:#F0F0F0}e:15px;border-radius:1px;cursor:pointer}
 .Bsou:hover{background:#317ef3}
 .active{background:#F0F0F0}
