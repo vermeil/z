@@ -235,13 +235,6 @@ function ul_none(){//隐藏ul
     oUl.style.display='none';
 }
 
-//定位
-zhh.position = function(){
-  var ct  = document.createElement('script');
-  ct.src="https://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"
-  document.body.appendChild(ct);
-}
-zhh.position();
 //天气预报
 zhh.city =function (){
   var ct = remote_ip_info["city"]               //先定位一下城市

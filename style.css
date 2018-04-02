@@ -50,9 +50,9 @@ img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;}
 .butt .p1 a{padding-left:30px;color:#999;font-weight:100}
 .butt .p2{margin-top:6px;text-align:center;font-size:12px}
 .butt .p2 a{color:#999;font-weight:100}
-.butt .p2 i{width:14px;height:17px;display:inline-block;overflow:hidden;background:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png) no-repeat;_background-image:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_d5b04cc.gif)}
+/*.butt .p2 i{width:14px;height:17px;display:inline-block;overflow:hidden;background:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_5859e57.png) no-repeat;_background-image:url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/global/img/icons_d5b04cc.gif)}
 .butt .p2 i[ico='two']{background-position:-623px -96px;margin-bottom: -3px}
-.butt .p2 i[ico='one']{background-position:-600px -96px;position:relative;top:3px}
+.butt .p2 i[ico='one']{background-position:-600px -96px;position:relative;top:3px}*/
 .div1{position:relative;left:50%;margin-left:-310px}
 .logo{margin-bottom: 15px;transition-duration:1s;transition-delay:.5s;position:relative;top:0px;left:50%;width:270px;height:129px;margin-left:-135px;pointer-events:initial}
 .div1 ul{display:none;z-index:10;position:absolute;width:539px;background:#fff;border:1px solid #ccc}
