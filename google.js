@@ -186,7 +186,7 @@ var oBtn = getByClass("Bsou")[0];
 
 zhh.New = function (){//最新新闻
   var nScr  = document.createElement('script');
-  nScr.src = "http://s.weibo.com/ajax/jsonp/suggestion?Refer=sina_sug&&_t1502449406497_79521732&_cb=ncb"; //新闻
+  nScr.src = "https://s.weibo.com/ajax/jsonp/suggestion?Refer=sina_sug&&_t1502449406497_79521732&_cb=ncb"; //新闻
   document.body.appendChild(nScr);
   if(!!-[1,]){      //不是ie678 时
     document.body.removeChild(nScr);
@@ -238,7 +238,7 @@ function ul_none(){//隐藏ul
 //定位
 zhh.position = function(){
   var ct  = document.createElement('script');
-  ct.src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"
+  ct.src="https://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"
   document.body.appendChild(ct);
 }
 zhh.position();
@@ -246,7 +246,7 @@ zhh.position();
 zhh.city =function (){
   var ct = remote_ip_info["city"]               //先定位一下城市
   var dScr  = document.createElement('script');
-  dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
+  dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
   document.body.appendChild(dScr);
   // document.body.removeChild(dScr);
 }
