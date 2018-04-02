@@ -147,7 +147,7 @@ zhh.prompt = function (ev)
     oScript.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+txt.value+"&cb=callback";  
     //添加链接及回调函数  
     document.body.appendChild(oScript);//添加script标签  
-    document.body.removeChild(oScript);//删除script标签  
+    // document.body.removeChild(oScript);//删除script标签  
 }  
 //回调函数  
 function callback(data){
