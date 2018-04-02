@@ -237,12 +237,12 @@ function ul_none(){//隐藏ul
 
 //天气预报
 zhh.city =function (){
-  var ct = remote_ip_info["city"]               //先定位一下城市
+  var ct = remote_ip_info["city"];               //先定位一下城市
   console.log(ct);
   var dScr  = document.createElement('script');
   dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
   document.body.appendChild(dScr);
-  // document.body.removeChild(dScr);
+ // document.body.removeChild(dScr);
 }
 
 function dcb(data){
