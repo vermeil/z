@@ -338,7 +338,8 @@ window.onload = function(){                     //ie 判断
         
         zhh.prompt();                     //ie 预加载
         //New();                          //新闻 预加载
-        console.log('拒绝ie从我做起');
+         console.log('拒绝ie从我做起,网站拿走不谢');
+         console.log('https://browsehappy.com');
        // if(!-[1,])
         //{
             //var body = getByClass('body')[0];
