@@ -162,9 +162,10 @@ function callback(data){
     }
     for(var i=0;i<Data.length;i++)
     {  
+        
         str += "<li><a>"+Data[i]+"</a>"+html_i+"</li>"
     }  
-    oUl.innerText=str;
+    oUl.innerHTML=str;
     oUl.style.display=(Data.length==0)?'none':'block';
     zhh.getLi(Data);
 }
@@ -206,7 +207,7 @@ function ncb(data){
             }                         
             str += "<li><a>"+nData[i]+"</a><i "+ina+"></i></li>"    
         }
-        oUl.innerText=str;
+        oUl.innerHTML=str;
         oUl.style.display=(nData.length==0)?'none':'block';
 
         zhh.getLi(nData);
