@@ -164,7 +164,7 @@ function callback(data){
     {  
         str += "<li><a>"+Data[i]+"</a>"+html_i+"</li>"
     }  
-    oUl.innerHTML=str;
+    oUl.innerText=str;
     oUl.style.display=(Data.length==0)?'none':'block';
     zhh.getLi(Data);
 }
@@ -206,7 +206,7 @@ function ncb(data){
             }                         
             str += "<li><a>"+nData[i]+"</a><i "+ina+"></i></li>"    
         }
-        oUl.innerHTML=str;
+        oUl.innerText=str;
         oUl.style.display=(nData.length==0)?'none':'block';
 
         zhh.getLi(nData);
@@ -265,7 +265,7 @@ function dcb(data){
     //最低温度  low
     //天气情况  type
     for(var i=0; i<ydata.length; i++){                         //将6个属性们打印到html中
-      oSpan[i].innerHTML=ydata[i];
+      oSpan[i].innerText=ydata[i];
       if(ydata[i]==Str.low){
         oSpan[i].innerText=ydata[i].replace(/低温/, "");
       }
