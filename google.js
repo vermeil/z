@@ -238,7 +238,7 @@ function ul_none(){//隐藏ul
 
 //天气预报
 zhh.city =function (){
-  if(window.remote_ip_info){
+  if(window.remote_ip_info){ 
      var ct = remote_ip_info["city"]           //先定位一下城市
      console.log("IP定位: "+ct);
   }else{
