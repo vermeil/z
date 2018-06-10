@@ -238,8 +238,13 @@ function ul_none(){//隐藏ul
 
 //天气预报
 zhh.city =function (){
-  var ct = remote_ip_info["city"] || 'z郑州';           //先定位一下城市
-  console.log("IP定位: "+ct);
+  if(window.remote_ip_info){
+     var ct = remote_ip_info["city"]           //先定位一下城市
+     console.log("IP定位: "+ct);
+  }else{
+     var ct = '郑州';
+     console.log("你的API又双叒叕塴了~~  IP定位失败: 默认郑州");
+  }
   var dScr  = document.createElement('script');
   dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
   document.body.appendChild(dScr);
