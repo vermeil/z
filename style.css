@@ -35,7 +35,7 @@
 .snow:after{position: absolute;bottom:20px;right:15px; color:#a3d9ff ;content: "❆"!important; font-size: 30px !important;}
 
 img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;}
-.topL{display:none;position: fixed;right: 14px; bottom: 0px;transition:all 1s;opacity:0;z-index:-998;}
+.topL{display:none;position: fixed;right: 14px; bottom: 0px;transition:all 1s;opacity:0;}/*z-index:-998;*/
 .topL:hover{opacity:1;}
 .topL ul{ position: absolute; right: 40px; bottom: 253px; width:100px; color:#fff;font-size:13px;text-align:center;}
 .topL img{height:446px;width:223px}
