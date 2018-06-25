@@ -263,7 +263,21 @@ function dcb(data){
         var date = new Date();
         var month = date.getMonth()+1+'月';
     console.log("%c"+month+Str.date+"     现在的温度:"+WenD+"℃"+"     温馨提示:"+GanM,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');//控制台提示
-     
+             var oWeather = document.getElementById('weather');
+        var ty = '';
+        if(ydata[1].indexOf("雨") > -1){
+            ty += 'rain '
+        }else if(ydata[1].indexOf("雪") > -1){
+            ty += 'snow '
+        }
+        if(ydata[1].indexOf("小") > -1){
+            ty += 'degree_a'
+        }else if(ydata[1].indexOf("中") > -1){
+            ty += 'degree_b'
+        }else if(ydata[1].indexOf("大") > -1){
+            ty += 'degree_c'
+        }
+        oWeather.className = ty
     //日期      date
     //最高温度  high
     //风级      fengli  
