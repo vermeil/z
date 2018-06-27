@@ -34,8 +34,8 @@ var bann = getByClass('banner')[0],
     ti = getByClass('T',bann)[0],           //相机
     // Div1 =getByClass(bann,'div1')[0],       //搜索大框
     Bxy = document.getElementById('bxy'),   //二维码
-    now = -1,
-    show = false,
+    now = -1,      
+    oWeather = document.getElementById('weather'),
     google = false,
     timer = null,//延迟器的stop时间
     //以上 是百度api     以下是天气预报api
@@ -263,7 +263,7 @@ function dcb(data){
         var date = new Date();
         var month = date.getMonth()+1+'月';
     console.log("%c"+month+Str.date+"     现在的温度:"+WenD+"℃"+"     温馨提示:"+GanM,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');//控制台提示
-             var oWeather = document.getElementById('weather');
+       
         var ty = '';
         if(ydata[1].indexOf("雨") > -1){
             ty += 'rain '
@@ -318,9 +318,10 @@ function Bot(){
         Woff = Bxy.offsetWidth;
     // var real = (Boff>401 && Woff>1121)?'block':'none';
     var real = (Boff>369 && Woff>1111)?'block':'none';
-    BxyChild[0].style.display=real;
-    BxyChild[1].style.display=real;
-    oDiv.style.display=real;
+    var arr = [BxyChild[0] , BxyChild[1] , oDiv , oWeather]
+    for(var i= 0;i<arr.length;i++){
+          arr[i].style.display=real;
+    }
 }   
 Bot();
 
