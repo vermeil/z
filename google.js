@@ -161,7 +161,7 @@ function callback(data){
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
-        str="<li><strong>翻译  </strong><a class="none_code"></a>"+html_i+"</li>";
+        str="<li><strong>翻译  </strong><a class='none_code'></a>"+html_i+"</li>";
         for(var i=0;i<Data.length;i++)
         {  
             str += "<li><a class='none_code'></a>"+html_i+"</li>"
