@@ -156,7 +156,7 @@ function callback(data){
     if(zhh.ipone || Bxy.offsetWidth < 768) {
         Data.length = Math.min(6,Data.length)
     }else{
-        //Data.length = Math.min(9,Data.length)
+        Data.length = Math.min(9,Data.length)
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
@@ -179,6 +179,7 @@ function callback(data){
         zhh.getLi(Data);
     }
 }
+txt.onkeyup = zhh.prompt;
 
 //空值搜索页面  原地蹦达
 var oBtn = getByClass("Bsou")[0];
