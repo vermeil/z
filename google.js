@@ -217,7 +217,7 @@ function ncb(data){
             }else if(i===3){
                 ina="nthree";
             }                         
-            str += "<li><a class='none_new'></a><i "+ina+">z</i></li>"    
+            str += "<li><a class='none_new'></a><i "+ina+"></i></li>"    
         }
         oUl.innerHTML=str;
         for(var j=0;j<nData.length + 1;j++)
