@@ -151,19 +151,20 @@ zhh.prompt = function (ev)
 }  
 //回调函数  
 function callback(data){
-    var str='';
+    var str='' , html_i='';
     var Data = data.s;
     if(zhh.ipone || Bxy.offsetWidth < 768) {
         Data.length = Math.min(6,Data.length)
+        html_i = "<i></i>"
     }else{
         Data.length = Math.min(9,Data.length)
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
-        str='<li><strong>翻译  </strong><a class="none_code"></a></li>';
+        str="<li><strong>翻译  </strong><a class="none_code"></a>"+html_i+"</li>";
         for(var i=0;i<Data.length;i++)
         {  
-            str += "<li><a class='none_code'></a><i></i></li>"
+            str += "<li><a class='none_code'></a>"+html_i+"</li>"
         }  
         oUl.innerHTML=str;
         for(var j=0;j<Data.length + 1;j++)
