@@ -262,11 +262,10 @@ function ip_go(data){
   var ct = data.address;
   var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
   ct = ct.match(reg)
-  var dScr  = document.createElement('script');
   if(ct.length < 1){
      var ct = '郑州';
      console.log("你的API又双叒叕塴了~~  IP定位失败: 默认郑州");
-  }else{
+  }else if(typeof ct == 'object'){
       for (var i = ct.length - 1; i >= 0; i--) {
           if(ct[i] != undefined){
             ct = ct[i];
@@ -274,10 +273,11 @@ function ip_go(data){
           }
       }
   }
+  var dScr  = document.createElement('script');
   dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
   document.body.appendChild(dScr);
+  // document.body.removeChild(dScr);
 }
-
 
 function dcb(data){
     var City = data.data.city,          //地区
