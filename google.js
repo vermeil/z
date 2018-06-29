@@ -208,7 +208,6 @@ function ncb(data){
       ina ='',
       nData = data.data;
       oUl.style.display=(nData.length==0)?'none':'block';
-      if(nData.length > 0){
         for(var i=0,len = nData.length; i<len ;i++){   
             if(i===1){
                 ina="none";
@@ -217,16 +216,13 @@ function ncb(data){
             }else if(i===3){
                 ina="nthree";
             }                         
-            str += "<li><a class='none_new'></a><i "+ina+"></i></li>"    
+            str += "<li><a class='none_new'>"+nData[i]+"</a ><i "+ina+"></i></li>"    
         }
         oUl.innerHTML=str;
-        for(var j=0;j<nData.length + 1;j++)
-        {  
-            getByClass('none_new')[j].innerText = nData[j];
-        } 
-      }
-      zhh.getLi(nData);
+        oUl.style.display=(nData.length==0)?'none':'block';
+        zhh.getLi(nData);
 }
+
 //操作
 
 txt.onmousedown = function(tf){//ul
