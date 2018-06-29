@@ -151,25 +151,34 @@ zhh.prompt = function (ev)
 }  
 //回调函数  
 function callback(data){
-    var str="";
+    var str='';
     var Data = data.s;
     if(zhh.ipone || Bxy.offsetWidth < 768) {
         Data.length = Math.min(6,Data.length)
+    }else{
+        //Data.length = Math.min(9,Data.length)
     }
-    var html_i = '';
-    if(zhh.ipone || Bxy.offsetWidth < 768){
-        html_i = '<i></i>'
-    }
-    for(var i=0;i<Data.length;i++)
-    {  
-        
-        str += "<li><a>"+Data[i]+"</a>"+html_i+"</li>"
-    }  
-    oUl.innerHTML=str;
     oUl.style.display=(Data.length==0)?'none':'block';
-    zhh.getLi(Data);
+    if(Data.length > 0){
+        str='<li><strong>翻译&nbsp;&nbsp;</strong><a class="none_code"></a></li>';
+        for(var i=0;i<Data.length;i++)
+        {  
+            str += "<li><a class='none_code'></a><i></i></li>"
+        }  
+        oUl.innerHTML=str;
+        for(var j=0;j<Data.length + 1;j++)
+        {  
+            if(j === 0){
+
+                getByClass('none_code')[j].innerText = Data[j];
+            }else{
+                getByClass('none_code')[j].innerText = Data[j - 1];
+            }
+        }  
+        Data.unshift('翻译&nbsp;&nbsp;' + Data[0])
+        zhh.getLi(Data);
+    }
 }
-txt.onkeyup = zhh.prompt;
 
 //空值搜索页面  原地蹦达
 var oBtn = getByClass("Bsou")[0];
