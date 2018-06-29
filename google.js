@@ -161,19 +161,18 @@ function callback(data){
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
-        str="<li><strong>翻译  </strong><a class='none_code'></a>"+html_i+"</li>";
+        str="<li><strong>翻译  </strong><a class='none_txt'></a>"+html_i+"</li>";
         for(var i=0;i<Data.length;i++)
         {  
-            str += "<li><a class='none_code'></a>"+html_i+"</li>"
+            str += "<li><a class='none_txt'></a>"+html_i+"</li>"
         }  
         oUl.innerHTML=str;
         for(var j=0;j<Data.length + 1;j++)
         {  
             if(j === 0){
-
-                getByClass('none_code')[j].innerText = Data[j];
+                getByClass('none_txt')[j].innerText = Data[j];
             }else{
-                getByClass('none_code')[j].innerText = Data[j - 1];
+                getByClass('none_txt')[j].innerText = Data[j - 1];
             }
         }  
         Data.unshift('翻译  ' + Data[0])
@@ -208,6 +207,8 @@ function ncb(data){
   var str ='',
       ina ='',
       nData = data.data;
+      oUl.style.display=(nData.length==0)?'none':'block';
+      if(nData.length > 0){
         for(var i=0,len = nData.length; i<len ;i++){   
             if(i===1){
                 ina="none";
@@ -216,12 +217,15 @@ function ncb(data){
             }else if(i===3){
                 ina="nthree";
             }                         
-            str += "<li><a>"+nData[i]+"</a><i "+ina+"></i></li>"    
+            str += "<li><a class='none_new'></a><i "+ina+">z</i></li>"    
         }
         oUl.innerHTML=str;
-        oUl.style.display=(nData.length==0)?'none':'block';
-
-        zhh.getLi(nData);
+        for(var j=0;j<nData.length + 1;j++)
+        {  
+            getByClass('none_new')[j].innerText = nData[j];
+        } 
+      }
+      zhh.getLi(nData);
 }
 //操作
 
