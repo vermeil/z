@@ -160,7 +160,7 @@ function callback(data){
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
-        str='<li><strong>翻译&nbsp;&nbsp;</strong><a class="none_code"></a></li>';
+        str='<li><strong>翻译  </strong><a class="none_code"></a></li>';
         for(var i=0;i<Data.length;i++)
         {  
             str += "<li><a class='none_code'></a><i></i></li>"
@@ -175,7 +175,7 @@ function callback(data){
                 getByClass('none_code')[j].innerText = Data[j - 1];
             }
         }  
-        Data.unshift('翻译&nbsp;&nbsp;' + Data[0])
+        Data.unshift('翻译  ' + Data[0])
         zhh.getLi(Data);
     }
 }
