@@ -254,22 +254,30 @@ function ul_none(){//隐藏ul
 //天气预报
 zhh.city =function (){
   var go  = document.createElement('script');
-  go.src = "http://api.asilu.com/geo/?callback=ip_go"; 
+  go.src = "https://api.asilu.com/geo/?callback=ip_go"; 
   document.body.appendChild(go);
   //document.body.removeChild(go);
 }
 function ip_go(data){
   var ct = data.address;
-  var reg = /([^省]+)市/g;
+  var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
   ct = ct.match(reg)
   var dScr  = document.createElement('script');
   if(ct.length < 1){
      var ct = '郑州';
      console.log("你的API又双叒叕塴了~~  IP定位失败: 默认郑州");
+  }else{
+      for (var i = ct.length - 1; i >= 0; i--) {
+          if(ct[i] != undefined){
+            ct = ct[i];
+            break;
+          }
+      }
   }
   dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
   document.body.appendChild(dScr);
 }
+
 
 function dcb(data){
     var City = data.data.city,          //地区
