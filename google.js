@@ -157,7 +157,7 @@ function callback(data){
         Data.length = Math.min(6,Data.length)
         html_i = "<i></i>"
     }else{
-        Data.length = Math.min(9,Data.length)
+        //Data.length = Math.min(9,Data.length)
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
