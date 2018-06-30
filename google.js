@@ -204,10 +204,11 @@ zhh.New = function (){//最新新闻
   }
 }
 function ncb(data){ 
-  var str ='',
-      ina ='',
-      nData = data.data;
-      oUl.style.display=(nData.length==0)?'none':'block';
+    var str ='',
+        ina ='',
+        nData = data.data;
+    oUl.style.display=(nData.length==0)?'none':'block';
+    if(nData.length>0){
         for(var i=0,len = nData.length; i<len ;i++){   
             if(i===1){
                 ina="none";
@@ -216,12 +217,17 @@ function ncb(data){
             }else if(i===3){
                 ina="nthree";
             }                         
-            str += "<li><a class='none_new'>"+nData[i]+"</a ><i "+ina+"></i></li>"    
+            str += "<li><a class='none_new'></a><i "+ina+"></i></li>"    
         }
         oUl.innerHTML=str;
-        oUl.style.display=(nData.length==0)?'none':'block';
+        for(var j=0;j<nData.length;j++)
+        {  
+            getByClass('none_new')[j].innerText = nData[j];
+        }  
         zhh.getLi(nData);
+    }
 }
+
 
 //操作
 
