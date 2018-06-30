@@ -157,7 +157,7 @@ function callback(data){
         Data.length = Math.min(6,Data.length)
         html_i = "<i></i>"
     }else{
-        Data.length = Math.min(9,Data.length)
+       // Data.length = Math.min(9,Data.length)
     }
     oUl.style.display=(Data.length==0)?'none':'block';
     if(Data.length > 0){
@@ -170,12 +170,12 @@ function callback(data){
         for(var j=0;j<Data.length + 1;j++)
         {  
             if(j === 0){
-                getByClass('none_txt')[j].innerText = Data[j];
+                getByClass('none_txt')[j].innerText = txt.value;
             }else{
                 getByClass('none_txt')[j].innerText = Data[j - 1];
             }
         }  
-        Data.unshift('翻译  ' + Data[0])
+        Data.unshift('翻译  ' + txt.value)
         zhh.getLi(Data);
     }
 }
