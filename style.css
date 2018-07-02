@@ -72,7 +72,7 @@ img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;}
 .div1 ul i[nthree]:after{color:#A1D958}
 .div1 ul i[ntwo]:after{color:#7CBCD0}
 .sou{position:relative;width:650px}
-.sou .Tsou{z-index:20;position:relative;float:left;width:529px;height:28px;padding:5px;font-size:16px;border:1px solid #ccc;line-height:28px}
+.sou .Tsou{z-index:20;position:relative;float:left;width:500px;height:28px;padding:5px;padding-right: 34px;font-size:16px;border:1px solid #ccc;line-height:28px}
 .sou .Tsou:hover{border-color:#999}
 .sou .Tsou:focus{outline:none;border-color:#4791ff}
 input::-ms-clear{display:none}
