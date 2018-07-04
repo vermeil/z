@@ -274,6 +274,7 @@ function ip_go(data){
             break;
           }
       }
+      console.log("IP定位"+data.address);
   }
   var dScr  = document.createElement('script');
   dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
