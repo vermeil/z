@@ -1,5 +1,5 @@
-﻿
-'use strict'                            //严格模式
+
+ 'use strict'                            //严格模式
 
 function getByClass(sClass,oParent)            //兼容ie6 的getElementsByTagName ..多class 
 {  
@@ -23,8 +23,6 @@ function getByClass(sClass,oParent)            //兼容ie6 的getElementsByTagNa
      return aResult;
 }
 
-
-
 //getByClass(oBut,'mark_right')[0];
 var bann = getByClass('banner')[0],
     txt = getByClass('Tsou',bann)[0],       
@@ -34,10 +32,10 @@ var bann = getByClass('banner')[0],
     ti = getByClass('T',bann)[0],           //相机
     // Div1 =getByClass(bann,'div1')[0],       //搜索大框
     Bxy = document.getElementById('bxy'),   //二维码
-    now = -1,      
-    oWeather = document.getElementById('weather'),
+    oWeather = document.getElementById('weather'),//预警
+    // now = -1,
     google = false,
-    timer = null,//延迟器的stop时间
+    // timer = null,//延迟器的stop时间
     //以上 是百度api     以下是天气预报api
     //
     oDiv = getByClass('topL')[0],      //四月草
@@ -65,89 +63,122 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
         window.open("https://www.google.com.hk/search?q=" + data,bf)
     }
 }
+// function on(e,fn){
+//     if (window.attachEvent) { 
+//       return  window.attachEvent('on'+e, fn); 
+//     } else if (window.addEventListener) { 
+//       return  window.addEventListener(e, fn, false);   
+//     }     
+// }
 zhh.getLi = function(da){     //li 鼠标效果  键盘效果   
-    var Li = bann.getElementsByTagName('li');
-    var oLi = Li ; 
-    for(var j=0;j<oLi.length;j++)
-    {
-        oLi[j].index = j; 
-        oLi[j].onclick = function ()
-        {   
-            zhh.two(da[this.index])  
-            txt.value=da[this.index];
-            oUl.style.display="none";
-        };
-        oLi[j].onmouseover = function ()
+    if(da.length > 0){
+        var Li = bann.getElementsByTagName('li');
+        var oLi = Li; 
+        var now = -1;
+        for(var j=0;j<oLi.length;j++)
         {
-            for (var t = 0;t<oLi.length;t++)
+            oLi[j].index = j; 
+            oLi[j].onclick = function ()
+            {   
+                zhh.two(da[this.index])  
+                txt.value=da[this.index];
+                oUl.style.display="none";
+            };
+            oLi[j].onmouseover = function ()
+            {
+                for (var t = 0;t<oLi.length;t++)
+                {
+                    oLi[t].className='';
+                }
+                oLi[this.index].className='active';
+                now = this.index;
+            };
+        }  
+        // addEvent(document,'keydown',li_down)
+        document.onkeydown = function (ev)
+        {   
+            var event = ev || window.event;
+            for (var t = 0;t<da.length;t++)
             {
                 oLi[t].className='';
-            }
-            oLi[this.index].className='active';
-        };
-    }  
-
-    document.onkeydown = function(ev)
-    {   
-        var event = ev || window.event;
-        
-        for (var t = 0;t<da.length;t++)
-        {
-            oLi[t].className='';
-        } 
-        if(event.keyCode==38)
-        {
-            now--;
-            if(now==-1 || now==-2) now = da.length-1;
-            oLi[now].className='active';
-            txt.value = da[now];
-        }
-        if(event.keyCode==40)
-        {
-            now++;
-            if(now>da.length-1) now=0;
-            oLi[now].className='active';
-            txt.value = da[now];
-        }
-        if(event.keyCode==13)
-        {
-            if(txt.value==''){
-                window.open(document.URL);
-            }
-            else
+            } 
+            if(event.keyCode==38)
             {
-                zhh.two(txt.value)
-                oUl.style.display='';
+                now--;
+                if(now==-1 || now==-2) now = da.length-1;
+                oLi[now].className='active';
+                txt.value = da[now];
+                return false;
             }
-        }
-        if(event.keyCode==38 || event.keyCode==40){return false};  
-    };
-    Li = null ;
+            if(event.keyCode==40)
+            {
+                now++;
+                if(now>da.length-1) now=0;
+                oLi[now].className='active';
+                txt.value = da[now];
+                return false;
+            }
+            if(event.keyCode==13)
+            {
+                if(txt.value==''){
+                    window.open(document.URL);
+                }
+                else
+                {
+                    zhh.two(txt.value)
+                    oUl.style.display='';
+                }
+            }
+            // if(event.keyCode==38 || event.keyCode==40){return false};  
+        };
+        Li = null;
+    }
 }
 
-
-function stopEvent(event){ //阻止冒泡事件
-      if(event && event.stopPropagation)
-        {
-         event.stopPropagation();
-        }
-        else if(window.event)
-        {
-        window.event.cancelBubble = true;
-        }
+//阻止冒泡事件
+function stopEvent(event){ 
+  if(event && event.stopPropagation)
+    {
+     event.stopPropagation();
+    }
+    else if(window.event)
+    {
+    window.event.cancelBubble = true;
+    }
 }
 
-
+//事件监听的兼容性写法
+function addEvent(element, eType, handle, bol) {
+    if(element.addEventListener){           //如果支持addEventListener
+        bol = bol || 'false';
+        element.addEventListener(eType, handle, bol);
+    }else if(element.attachEvent){          //如果支持attachEvent
+        element.attachEvent("on"+eType, handle);
+    }else{                                  //否则使用兼容的onclick绑定
+        element["on"+eType] = handle;
+    }
+}
+// 事件解绑
+function removeEvent(element, eType, handle, bol) {
+    if(element.addEventListener){
+        bol = bol || 'false';
+        element.removeEventListener(eType, handle, bol);
+    }else if(element.attachEvent){
+        element.detachEvent("on"+eType, handle);
+    }else{
+        element["on"+eType] = null;
+    }
+}
 //搜索辅助
 zhh.prompt = function (ev)     
 {   
     var event = ev||window.event ;
     if(event.keyCode==38 || event.keyCode==40){return false};
     var oScript = document.createElement("script");//动态创建script标签  
-    oScript.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+txt.value+" "+"&cb=callback";  
+    oScript.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+txt.value+"&cb=callback";  
     //添加链接及回调函数  
     document.body.appendChild(oScript);//添加script标签  
-    // document.body.removeChild(oScript);//删除script标签  
+    document.body.removeChild(oScript);//删除script标签  
 }  
 //回调函数  
 function callback(data){
@@ -187,8 +218,8 @@ var oBtn = getByClass("Bsou")[0];
     {    
         if(txt.value=='')
         { 
-                // var bf = (zhh.ipone)?"_self":"_bank";
-                window.open(document.URL,"_self");
+            var bf =(zhh.ipone)?"_self":"_bank";
+                window.open(document.URL,bf);
             }else
             {   
                 zhh.two(txt.value) 
@@ -228,9 +259,7 @@ function ncb(data){
     }
 }
 
-
 //操作
-
 txt.onmousedown = function(tf){//ul
     var uf = oUl.children[0];                  //ul下的li 是否生成 
         if(!-[1,] && this.value=='' || !uf){    //ie7 以下兼容
@@ -239,19 +268,17 @@ txt.onmousedown = function(tf){//ul
             oUl.style.display='block';
         }
         if(this.value==''){
-            if(!zhh.ipone && Bxy.offsetWidth > 768){
-                zhh.New();
-            }else{
-                ul_none();
-            }
+            if(!zhh.ipone)
+            zhh.New();
         };
     stopEvent(tf);                              //阻止 冒泡   
 }
-
 document.onmousedown = ul_none;
 function ul_none(){//隐藏ul
     oUl.style.display='none';
+    removeEvent(document,'keydown')
 }
+
 
 //天气预报
 zhh.city =function (){
@@ -293,8 +320,8 @@ function dcb(data){
 
         var date = new Date();
         var month = date.getMonth()+1+'月';
-    console.log("%c"+month+Str.date+"     现在的温度:"+WenD+"℃"+"     温馨提示:"+GanM,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');//控制台提示
-       
+        console.log("%c"+month+Str.date+"     现在的温度:"+WenD+"℃"+"     温馨提示:"+GanM,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');//控制台提示
+        
         var ty = '';
         if(ydata[1].indexOf("雨") > -1){
             ty += 'rain '
@@ -357,13 +384,13 @@ function Bot(){
 Bot();
 
 //窗口变化时
-window.onresize = function(){
-    clearTimeout(timer);
-    timer = setTimeout(function(){
+addEvent(window,'resize',function(){
+    clearTimeout(window.timer);
+    window.timer = setTimeout(function(){
         Bot();
         bimg();
     },100);
-};
+})
 
 ti.onclick = function(tf){//相机
     google =! google;
@@ -378,7 +405,6 @@ window.onload = function(){                     //ie 判断
     // zhh.New();                               //新闻 预加载
     txt.value=''; 
     zhh.city(); 
-
     if(!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1)
     {                  
         txt.onfocus = function(){
@@ -390,8 +416,7 @@ window.onload = function(){                     //ie 判断
         
         zhh.prompt();                     //ie 预加载
         //New();                          //新闻 预加载
-         console.log('拒绝ie从我做起,网站拿走不谢');
-         console.log('https://browsehappy.com');
+        console.log('拒绝ie从我做起');
        // if(!-[1,])
         //{
             //var body = getByClass('body')[0];
@@ -399,8 +424,13 @@ window.onload = function(){                     //ie 判断
        // }
     }
     else
-    {  
-       // document.body.addEventListener('input', POWERMODE);
+    {   
+        // zhh.city();                     //编码失败  取消天气预报
+        if(window.POWERMODE){
+            POWERMODE.colorful = true;
+            POWERMODE.shake = true;
+            document.body.addEventListener('input', POWERMODE);
+        }
         document.addEventListener('visibilitychange',function(){ //title提示
             document.title = document.hidden ? '众里寻她千百度,蓦然回首' : '那人却在灯火阑珊处';
             if(!document.hidden){
@@ -422,3 +452,26 @@ window.onload = function(){                     //ie 判断
             Bot();
         }
 };
+
+
+// var body = document.getElementsByTagName('body')[0];
+// document.onkeydown = function(ev){
+//     var e = ev || window.event;
+//     var keyCode = e.keyCode || e.which || e.charCode;
+//     var ctrlKey = e.ctrlKey || e.metaKey;
+//     if(ctrlKey && keyCode == 38) {
+//         body.className = ''
+//         return false;
+//     } 
+//     if(ctrlKey && keyCode == 40) {
+//         body.className = 'body_black'
+//         return false;
+//     } 
+// }
+
+// document.oncontextmenu= function(){
+//         return false;
+// }
+// for (var i = 2333; i >= 0; i--) {
+//     debugger;
+// }
