@@ -372,7 +372,7 @@ bimg();
 //二维码 四叶草 ~判断
 function Bot(){
     var BxyChild = Bxy.children,
-        Boff = Bxy.offsetTop,
+        Boff = document.documentElement.clientHeight ||document.body.clientHeight,
         Woff = Bxy.offsetWidth;
     // var real = (Boff>401 && Woff>1121)?'block':'none';
     var real = (Boff>369 && Woff>1111)?'block':'none';
