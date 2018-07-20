@@ -403,10 +403,10 @@ oUl.onmousedown=function(tf){stopEvent(tf);return false}    //防止选中li中�
 
 window.onload = function(){                     //ie 判断
     // zhh.New();                               //新闻 预加载
-    txt.value=''; 
     zhh.city(); 
     if(!!window.ActiveXObject || "ActiveXObject" in window || navigator.userAgent.indexOf("Edge") > -1)
-    {                  
+    {     
+        txt.value=''; 
         txt.onfocus = function(){
             this.style.borderColor= '#4791ff';  
         }
