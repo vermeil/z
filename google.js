@@ -292,7 +292,7 @@ function ip_go(data){
      console.log("%c"+"你的API又双叒叕塴了~~  IP定位失败: 默认郑州",'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
   }else if(typeof ct == 'object'){
       for (var i = ct.length - 1; i >= 0; i--) {
-          if(ct[i] != undefined){
+          if(ct[i] != undefined && ct[i] != ''){
             ct = ct[i];
             break;
           }
