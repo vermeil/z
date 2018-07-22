@@ -272,7 +272,7 @@ txt.onmousedown = function(tf){//ul
 document.onmousedown = ul_none;
 function ul_none(){//隐藏ul
     oUl.style.display='none';
-    removeEvent(document,'keydown')
+  // removeEvent(document,'keydown')
 }
 
 
