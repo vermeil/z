@@ -371,7 +371,7 @@ function Bot(){
         Boff = document.documentElement.clientHeight ||document.body.clientHeight,
         Woff = Bxy.offsetWidth;
     // var real = (Boff>401 && Woff>1121)?'block':'none';
-    var real = (Boff>369 && Woff>1111)?'block':'none';
+    var real = (Boff>555 && Woff>1111)?'block':'none';
     var arr = [BxyChild[0] , BxyChild[1] , oDiv , oWeather]
     for(var i= 0;i<arr.length;i++){
           arr[i].style.display=real;
