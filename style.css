@@ -1,10 +1,20 @@
 *{margin:0;padding:0;list-style:none;font-family:arial,Microsoft YaHei}
 
         
-img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;}
-.topL{display:none}
-.topL ul{ position: fixed; right: 53px; bottom: 253px; width:100px; color:#fff;font-size:13px;text-align:center;}
-.topL img{z-index:-998;position:fixed;right:14px;bottom:0px;height:446px;width:223px}
+/*不可抗力等级 #a3d9ff #FCBC4B  #F58C90*/
+.degree_a{background-color:#a3d9ff !important;}
+.degree_a:after{color:#a3d9ff !important;}
+.degree_b{background-color:#fcbc4b8a !important;}
+.degree_b:after{color:#fcbc4b8a !important;}
+.degree_c{background-color:#ff0c185c !important;}
+.degree_c:after{color:#ff0c185c !important;}
+.rain {position: absolute;bottom:20px;right:15px; width: 20px;height: 20px; background-color:#a3d9ff ; -webkit-clip-path: inset(0 0 0 0 round 50% 50% 0 50%);-o-clip-path: inset(0 0 0 0 round 50% 50% 0 50%); clip-path: inset(0 0 0 0 round 50% 50% 0 50%);transform: rotate(45deg);}        
+.snow:after{position: absolute;bottom:20px;right:15px; color:#a3d9ff ;content: "❆"!important; font-size: 30px !important;}
+img{pointer-events:none;-moz-user-select:none;-webkit-user-select:none;}
+.topL{display:none;position: fixed;right: 14px; bottom: 0px; -moz-transition: all 1s;-o-transition: all 1s;-webkit-transition: all 1s;transition: all 1s;opacity:0;filter: alpha(opacity=0);}/*z-index:-998;*/
+.topL:hover{opacity:1;filter: alpha(opacity=100);}
+.topL ul{ position: absolute; right: 40px; bottom: 253px; width:100px; color:#fff;font-size:13px;text-align:center;}
+.topL img{height:446px;width:223px}
 .top{z-index:200;float:right;position:fixed;right:10px;top:10px;font-size:13px}
 .topt{float:right}
 .topt a{margin-left:15px;color:#333;font-weight:700;font-family:SimHei}
