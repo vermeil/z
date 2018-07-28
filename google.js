@@ -238,7 +238,7 @@ function ncb(data){
         arr =[],
         ina ='',
         nData = data.data.list;
-        console.log(data.data)
+//         console.log(data.data)
     oUl.style.display=(nData.length==0)?'none':'block';
     if(nData.length>0){
         for(var i=0,len = nData.length; i<len ;i++){   
