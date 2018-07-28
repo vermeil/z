@@ -224,7 +224,10 @@ var oBtn = getByClass("Bsou")[0];
 
 zhh.New = function (){//最新新闻
   var nScr  = document.createElement('script');
-  nScr.src = "https://s.weibo.com/ajax/jsonp/suggestion?Refer=sina_sug&&_t1502449406497_79521732&_cb=ncb"; //新闻
+  //https://s.weibo.com/ajax/jsonp/gettopsug?uid=&ref=PC_topsug&url=https%3A%2F%2Fs.weibo.com%2Ftop%2Fsummary%3Fcate%3Drealtimehot&Mozilla=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F63.0.3239.132%20Safari%2F537.36&_cb=STK_15327407065793
+
+  // nScr.src = "https://s.weibo.com/ajax/jsonp/suggestion?Refer=sina_sug&&_t1502449406497_79521732&_cb=ncb"; //新闻
+  nScr.src = "https://s.weibo.com/ajax/jsonp/gettopsug?uid=&ref=PC_topsug&url=https%3A%2F%2Fs.weibo.com%2Ftop%2Fsummary%3Fcate%3Drealtimehot&Mozilla=Mozilla%2F5.0%20(Windows%20NT%206.1%3B%20WOW64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F63.0.3239.132%20Safari%2F537.36&_cb=ncb"; //新闻
   document.body.appendChild(nScr);
   if(!!-[1,]){      //不是ie678 时
     document.body.removeChild(nScr);
@@ -232,8 +235,10 @@ zhh.New = function (){//最新新闻
 }
 function ncb(data){ 
     var str ='',
+        arr =[],
         ina ='',
-        nData = data.data;
+        nData = data.data.list;
+        console.log(data.data)
     oUl.style.display=(nData.length==0)?'none':'block';
     if(nData.length>0){
         for(var i=0,len = nData.length; i<len ;i++){   
@@ -247,11 +252,17 @@ function ncb(data){
             str += "<li><a class='none_new'></a><i "+ina+"></i></li>"    
         }
         oUl.innerHTML=str;
-        for(var j=0;j<nData.length;j++)
+        //top
+        str = data.data.top.word;
+        getByClass('none_new')[0].innerText = str; 
+        arr.push(str)
+
+        for(var j=0;j<nData.length-1;j++)
         {  
-            getByClass('none_new')[j].innerText = nData[j];
+            getByClass('none_new')[j+1].innerText = nData[j].note;
+            arr.push(nData[j].note)
         }  
-        zhh.getLi(nData);
+        zhh.getLi(arr);
     }
 }
 
