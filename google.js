@@ -375,7 +375,7 @@ function bimg(){
         log.src = 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png';
     }
 }
-bimg();
+// bimg();
 //二维码 四叶草 ~判断
 function Bot(){
     var BxyChild = Bxy.children,
@@ -388,7 +388,7 @@ function Bot(){
           arr[i].style.display=real;
     }
 }   
-Bot();
+// Bot();
 
 //窗口变化时
 addEvent(window,'resize',function(){
