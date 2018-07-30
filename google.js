@@ -302,7 +302,8 @@ function ncb(data){
         oUl.innerHTML=str;
         //top
         str = data.data.top.word;
-        getByClass('none_new')[0].innerText = str.replace(/#+/g,''); 
+        str = str.replace(/#+/g,'');
+        getByClass('none_new')[0].innerText = str; 
         arr.push(str)
 
         for(var j=0;j<nData.length-1;j++)
