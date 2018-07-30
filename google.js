@@ -137,7 +137,15 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
         // addEvent(document,'keydown',li_down)
         document.onkeydown = function (ev)
         {   
+
             var event = ev || window.event;
+            var keyCode = event.keyCode || event.which || event.charCode;
+            var ctrlKey = event.ctrlKey || event.metaKey;
+
+            if(ctrlKey && keyCode == 83) {
+                // body.className = 'body_black'
+                return false;
+            } 
             for (var t = 0;t<da.length;t++)
             {
                 oLi[t].className='';
