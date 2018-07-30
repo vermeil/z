@@ -22,7 +22,47 @@ function getByClass(sClass,oParent)            //兼容ie6 的getElementsByTagNa
      name = null;
      return aResult;
 }
+//禁止
+function event_rf(ev){
+    var e = ev || window.event;
+    var keyCode = e.keyCode || e.which || e.charCode;
+    var ctrlKey = e.ctrlKey || e.metaKey;
 
+    //var body = document.getElementsByTagName('body')[0];
+    // if(ctrlKey && keyCode == 38) {
+    //     body.className = ''
+    //     return false;
+    // } 
+    // if(ctrlKey && keyCode == 40) {
+    //     body.className = 'body_black'
+    //     return false;
+    // } 
+    if(ctrlKey && keyCode == 83) {
+        // body.className = 'body_black'
+        return false;
+    } 
+    if(keyCode == 123) {
+        // body.className = 'body_black'
+        return false;
+    } 
+}
+document.onkeydown = event_rf
+getByClass('xy')[0].oncontextmenu = function(tf){
+    document.onkeydown = document.oncontextmenu = null
+    console.log("%c"+"宾果！控制解禁~",'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;')
+    stopEvent(tf);
+}
+document.oncontextmenu = function(){
+        return false;
+}
+for (var i = 2333; i >= 0; i--) {
+    debugger;
+}
+
+//禁止
+//
+//
+//
 //getByClass(oBut,'mark_right')[0];
 var bann = getByClass('banner')[0],
     txt = getByClass('Tsou',bann)[0],       
