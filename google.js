@@ -146,6 +146,10 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 // body.className = 'body_black'
                 return false;
             } 
+            if(keyCode == 123) {
+                // body.className = 'body_black'
+                return false;
+            } 
             for (var t = 0;t<da.length;t++)
             {
                 oLi[t].className='';
