@@ -256,6 +256,8 @@ function callback(data){
         }  
         Data.unshift('翻译  ' + txt.value)
         zhh.getLi(Data);
+    }else{
+    	oUl.innerHTML=null;
     }
 }
 txt.onkeyup = zhh.prompt;
