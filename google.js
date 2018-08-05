@@ -111,7 +111,7 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
 //     }     
 // }
 zhh.getLi = function(da){     //li 鼠标效果  键盘效果   
-//     if(da.length > 0){
+    if(da.length > 0){
         var Li = bann.getElementsByTagName('li');
         var oLi = Li; 
         var now = -1;
@@ -134,10 +134,10 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 now = this.index;
             };
         }  
+    }
         // addEvent(document,'keydown',li_down)
         document.onkeydown = function (ev)
         {   
-
             var event = ev || window.event;
             var keyCode = event.keyCode || event.which || event.charCode;
             var ctrlKey = event.ctrlKey || event.metaKey;
@@ -150,25 +150,29 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 // body.className = 'body_black'
                 return false;
             } 
-            for (var t = 0;t<da.length;t++)
-            {
-                oLi[t].className='';
-            } 
-            if(event.keyCode==38)
-            {
-                now--;
-                if(now==-1 || now==-2) now = da.length-1;
-                oLi[now].className='active';
-                txt.value = da[now];
-                return false;
-            }
-            if(event.keyCode==40)
-            {
-                now++;
-                if(now>da.length-1) now=0;
-                oLi[now].className='active';
-                txt.value = da[now];
-                return false;
+         
+           if(da.length > 0){
+                 for (var t = 0;t<da.length;t++)
+                 {
+                     oLi[t].className='';
+                 } 
+                if(event.keyCode==38)
+                {
+                    now--;
+                    if(now==-1 || now==-2) now = da.length-1;
+                    oLi[now].className='active';
+                    txt.value = da[now];
+                    return false;
+                }
+                if(event.keyCode==40)
+                {
+                    now++;
+                    if(now>da.length-1) now=0;
+                    oLi[now].className='active';
+                    txt.value = da[now];
+                    return false;
+                }
+            
             }
             if(event.keyCode==13)
             {
@@ -184,7 +188,6 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
             // if(event.keyCode==38 || event.keyCode==40){return false};  
         };
         Li = null;
-//     }
 }
 
 //阻止冒泡事件
