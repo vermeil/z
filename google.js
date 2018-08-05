@@ -111,7 +111,7 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
 //     }     
 // }
 zhh.getLi = function(da){     //li 鼠标效果  键盘效果   
-    if(da.length > 0){
+//     if(da.length > 0){
         var Li = bann.getElementsByTagName('li');
         var oLi = Li; 
         var now = -1;
@@ -184,7 +184,7 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
             // if(event.keyCode==38 || event.keyCode==40){return false};  
         };
         Li = null;
-    }
+//     }
 }
 
 //阻止冒泡事件
