@@ -151,6 +151,7 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 return false;
             } 
             if(da.length > 0){
+             console.log(da.length)
                  for (var t = 0;t<da.length;t++)
                  {
                      oLi[t].className='';
