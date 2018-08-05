@@ -111,7 +111,7 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
 //     }     
 // }
 zhh.getLi = function(da){     //li 鼠标效果  键盘效果   
-//     if(da.length > 0){
+   if(da.length > 0){
         var Li = bann.getElementsByTagName('li');
         var oLi = Li; 
         var now = -1;
@@ -134,6 +134,7 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 now = this.index;
             };
         }  
+   }
         // addEvent(document,'keydown',li_down)
         document.onkeydown = function (ev)
         {   
@@ -149,10 +150,10 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 // body.className = 'body_black'
                 return false;
             } 
-         
+            if(da.length > 0){
                  for (var t = 0;t<da.length;t++)
                  {
-                     Li[t].className='';
+                     oLi[t].className='';
                  } 
                 if(event.keyCode==38)
                 {
@@ -170,6 +171,7 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                     txt.value = da[now];
                     return false;
                 }
+            }
             if(event.keyCode==13)
             {
                 if(txt.value==''){
