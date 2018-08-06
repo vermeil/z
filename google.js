@@ -257,11 +257,11 @@ function callback(data){
             }
         }  
         Data.unshift('翻译  ' + txt.value)
-        zhh.getLi(Data);
-//     }else{
 //      zhh.getLi(Data);
-//     	oUl.innerHTML=null;
-//     }
+    }else{
+    	oUl.innerHTML=null;
+    }
+    zhh.getLi(Data);
 }
 txt.onkeyup = zhh.prompt;
 
