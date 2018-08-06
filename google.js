@@ -150,8 +150,6 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                 // body.className = 'body_black'
                 return false;
             } 
-            if(da.length > 0){
-             console.log(da.length)
                  for (var t = 0;t<da.length;t++)
                  {
                      oLi[t].className='';
@@ -172,7 +170,6 @@ zhh.getLi = function(da){     //li 鼠标效果  键盘效果
                     txt.value = da[now];
                     return false;
                 }
-            }
             if(event.keyCode==13)
             {
                 if(txt.value==''){
