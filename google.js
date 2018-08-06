@@ -241,7 +241,7 @@ function callback(data){
         Data.length = Math.min(9,Data.length)
     }
     oUl.style.display=(Data.length==0)?'none':'block';
-    if(Data.length > 0){
+//     if(Data.length > 0){
         str="<li><strong>翻译  </strong><a class='none_txt'></a>"+html_i+"</li>";
         for(var i=0;i<Data.length;i++)
         {  
@@ -258,9 +258,10 @@ function callback(data){
         }  
         Data.unshift('翻译  ' + txt.value)
         zhh.getLi(Data);
-    }else{
-    	oUl.innerHTML=null;
-    }
+//     }else{
+//      zhh.getLi(Data);
+//     	oUl.innerHTML=null;
+//     }
 }
 txt.onkeyup = zhh.prompt;
 
