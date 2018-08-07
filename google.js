@@ -255,9 +255,9 @@ function callback(data){
         }  
         Data.unshift('翻译  ' + txt.value)
 //      zhh.getLi(Data);
-    }else{
-    	oUl.innerHTML=null;
-    }
+     if(Data.length == 0){
+      oUl.innerHTML=null;
+     }
     zhh.getLi(Data);
 }
 txt.onkeyup = zhh.prompt;
