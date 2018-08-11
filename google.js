@@ -100,7 +100,9 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
     if (!google) {
         window.open("https://www.baidu.com/s?wd=" + data,bf)
     } else {
-        window.open("https://www.google.com.hk/search?q=" + data,bf)
+     //https://www.google.com/complete/search?client=psy-ab&hl=en-GB&gs_rn=64&gs_ri=psy-ab&ei=uPBuW7bBDMPVgQbI6aDYAg&pq=asf&cp=12&gs_id=12&q=aaaaaaaaaaaa&xhr=t
+     // window.open("https://www.google.com.hk/search?q=" + data,bf)
+        window.open("https://www.google.com/complete/search?client=psy-ab&hl=en-GB&gs_rn=64&gs_ri=psy-ab&ei=uPBuW7bBDMPVgQbI6aDYAg&pq=asf&cp=12&gs_id=12&q=" + data+"&xhr=t",bf)
     }
 }
 // function on(e,fn){
