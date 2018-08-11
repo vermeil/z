@@ -100,9 +100,9 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
     if (!google) {
         window.open("https://www.baidu.com/s?wd=" + data,bf)
     } else {
-     //https://www.google.com/complete/search?client=psy-ab&hl=en-GB&gs_rn=64&gs_ri=psy-ab&ei=uPBuW7bBDMPVgQbI6aDYAg&pq=asf&cp=12&gs_id=12&q=aaaaaaaaaaaa&xhr=t
-     // window.open("https://www.google.com.hk/search?q=" + data,bf)
-        window.open("https://www.google.com/complete/search?client=psy-ab&hl=en-GB&gs_rn=64&gs_ri=psy-ab&ei=uPBuW7bBDMPVgQbI6aDYAg&pq=asf&cp=12&gs_id=12&q=" + data+"&xhr=t",bf)
+    //https://www.google.com/search?ei=uPBuW7bBDMPVgQbI6aDYAg&q=%E4%B8%80%E6%9C%AC%E9%81%93&oq=asfasfasfasf&gs_l=psy-ab.12..0l2j0i30k1.5985.193359.0.195899.13.6.0.0.0.0.342.660.3-2.2.0....0...1c.1j4.64.psy-ab..11.1.318....0.cD8BHz0QsAc
+    // window.open("https://www.google.com.hk/search?q=" + data,bf)
+        window.open("https://www.google.com/search?ei=uPBuW7bBDMPVgQbI6aDYAg&q="+data+"&oq=asfasfasfasf&gs_l=psy-ab.12..0l2j0i30k1.5985.193359.0.195899.13.6.0.0.0.0.342.660.3-2.2.0....0...1c.1j4.64.psy-ab..11.1.318....0.cD8BHz0QsAc",bf)
     }
 }
 // function on(e,fn){
