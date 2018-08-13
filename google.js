@@ -394,32 +394,29 @@ zhh.city =function (){
   //document.body.removeChild(go);
 }
 function ip_go(data){
-  var ct = data.address;
-  var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
-  ct = ct.match(reg)
-  if(ct.length < 1){
-     var ct = '郑州';
-     console.log("%c"+"你的API又双叒叕塴了~~  IP定位失败: 默认郑州",'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
-  }else if(typeof ct == 'object'){
-      for (var i = ct.length - 1; i >= 0; i--) {
-          if(ct[i] != undefined && ct[i] != ''){
-            ct = ct[i];
-            break;
-          }
-      }
-      console.log("%c"+"IP定位:   "+ct,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
-  }
-  var dScr  = document.createElement('script');
-  if(getBrowserInfo() === null){
-  	dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
-	  document.body.appendChild(dScr);
-  }else{
-  	dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
-	  document.body.appendChild(dScr);
-	  // document.body.removeChild(dScr);
-  }
-}
+	if(getBrowserInfo() != null){
 
+	  var ct = data.address;
+	  var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
+	  ct = ct.match(reg)
+	  if(ct.length < 1){
+	     var ct = '郑州';
+	     console.log("%c"+"你的API又双叒叕塴了~~  IP定位失败: 默认郑州",'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
+	  }else if(typeof ct == 'object'){
+	      for (var i = ct.length - 1; i >= 0; i--) {
+	          if(ct[i] != undefined && ct[i] != '') {
+	            ct = ct[i];
+	            break;
+	          }
+	      }
+	      console.log("%c"+"IP定位:   "+ct,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
+	  }
+	  	var dScr  = document.createElement('script');
+		dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
+		document.body.appendChild(dScr);
+		// document.body.removeChild(dScr);
+	}
+}
 function dcb(data){
     var City = data.data.city,          //地区
         WenD = data.data.wendu,         //现在的温度
@@ -491,6 +488,9 @@ function Bot(){
     for(var i= 0;i<arr.length;i++){
           arr[i].style.display=real;
     }
+	if(getBrowserInfo() === null){
+		arr[2].style.display = 'none';
+	}
 }   
 // Bot();
 
