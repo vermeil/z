@@ -22,6 +22,48 @@ function getByClass(sClass,oParent)            //兼容ie6 的getElementsByTagNa
      name = null;
      return aResult;
 }
+function getBrowserInfo(){
+        var ua = navigator.userAgent.toLocaleLowerCase();
+        var browserType=null;
+        if (ua.match(/msie/) != null || ua.match(/trident/) != null) {
+            browserType = "IE";
+            browserVersion = ua.match(/msie ([\d.]+)/) != null ? ua.match(/msie ([\d.]+)/)[1] : ua.match(/rv:([\d.]+)/)[1];
+        } else if (ua.match(/firefox/) != null) {
+            browserType = "火狐";
+        }else if (ua.match(/ubrowser/) != null) {
+            browserType = "UC";
+        }else if (ua.match(/opera/) != null) {
+            browserType = "欧朋";
+        } else if (ua.match(/bidubrowser/) != null) {
+            browserType = "百度";
+        }else if (ua.match(/metasr/) != null) {
+            browserType = "搜狗";
+        }else if (ua.match(/tencenttraveler/) != null || ua.match(/qqbrowse/) != null) {
+            browserType = "QQ";
+        }else if (ua.match(/maxthon/) != null) {
+            browserType = "遨游";
+        }else if (ua.match(/chrome/) != null) {
+            var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+            function _mime(option, value) {
+                var mimeTypes = navigator.mimeTypes;
+                for (var mt in mimeTypes) {
+                    if (mimeTypes[mt][option] == value) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            if(is360){
+                browserType = '360';
+            }else{
+                // $('html').css("zoom",".80");
+            }
+        }else if (ua.match(/safari/) != null) {
+            browserType = "Safari";
+        }
+        return browserType
+}
+
 //禁止
 // function event_rf(ev){
 //     var e = ev || window.event;
@@ -368,9 +410,14 @@ function ip_go(data){
       console.log("%c"+"IP定位:   "+ct,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
   }
   var dScr  = document.createElement('script');
-  dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
-  document.body.appendChild(dScr);
-  // document.body.removeChild(dScr);
+  if(getBrowserInfo() === null){
+  	dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
+	  document.body.appendChild(dScr);
+  }else{
+  	dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
+	  document.body.appendChild(dScr);
+	  // document.body.removeChild(dScr);
+  }
 }
 
 function dcb(data){
