@@ -524,7 +524,9 @@ window.onload = function(){                     //ie 判断
         txt.onblur = function(){
             this.style.borderColor = '';    
         }
-        
+        Bot();
+        bimg();
+
         zhh.prompt();                     //ie 预加载
         //New();                          //新闻 预加载
         console.log('拒绝ie从我做起');
