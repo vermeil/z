@@ -22,47 +22,47 @@ function getByClass(sClass,oParent)            //兼容ie6 的getElementsByTagNa
      name = null;
      return aResult;
 }
-function getBrowserInfo(){
-        var ua = navigator.userAgent.toLocaleLowerCase();
-        var browserType=null;
-        if (ua.match(/msie/) != null || ua.match(/trident/) != null) {
-            browserType = "IE";
-            browserVersion = ua.match(/msie ([\d.]+)/) != null ? ua.match(/msie ([\d.]+)/)[1] : ua.match(/rv:([\d.]+)/)[1];
-        } else if (ua.match(/firefox/) != null) {
-            browserType = "火狐";
-        }else if (ua.match(/ubrowser/) != null) {
-            browserType = "UC";
-        }else if (ua.match(/opera/) != null) {
-            browserType = "欧朋";
-        } else if (ua.match(/bidubrowser/) != null) {
-            browserType = "百度";
-        }else if (ua.match(/metasr/) != null) {
-            browserType = "搜狗";
-        }else if (ua.match(/tencenttraveler/) != null || ua.match(/qqbrowse/) != null) {
-            browserType = "QQ";
-        }else if (ua.match(/maxthon/) != null) {
-            browserType = "遨游";
-        }else if (ua.match(/chrome/) != null) {
-            var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-            function _mime(option, value) {
-                var mimeTypes = navigator.mimeTypes;
-                for (var mt in mimeTypes) {
-                    if (mimeTypes[mt][option] == value) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            if(is360){
-                browserType = '360';
-            }else{
-                // $('html').css("zoom",".80");
-            }
-        }else if (ua.match(/safari/) != null) {
-            browserType = "Safari";
-        }
-        return browserType
-}
+// function getBrowserInfo(){
+//         var ua = navigator.userAgent.toLocaleLowerCase();
+//         var browserType=null;
+//         if (ua.match(/msie/) != null || ua.match(/trident/) != null) {
+//             browserType = "IE";
+//             browserVersion = ua.match(/msie ([\d.]+)/) != null ? ua.match(/msie ([\d.]+)/)[1] : ua.match(/rv:([\d.]+)/)[1];
+//         } else if (ua.match(/firefox/) != null) {
+//             browserType = "火狐";
+//         }else if (ua.match(/ubrowser/) != null) {
+//             browserType = "UC";
+//         }else if (ua.match(/opera/) != null) {
+//             browserType = "欧朋";
+//         } else if (ua.match(/bidubrowser/) != null) {
+//             browserType = "百度";
+//         }else if (ua.match(/metasr/) != null) {
+//             browserType = "搜狗";
+//         }else if (ua.match(/tencenttraveler/) != null || ua.match(/qqbrowse/) != null) {
+//             browserType = "QQ";
+//         }else if (ua.match(/maxthon/) != null) {
+//             browserType = "遨游";
+//         }else if (ua.match(/chrome/) != null) {
+//             var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+//             function _mime(option, value) {
+//                 var mimeTypes = navigator.mimeTypes;
+//                 for (var mt in mimeTypes) {
+//                     if (mimeTypes[mt][option] == value) {
+//                         return true;
+//                     }
+//                 }
+//                 return false;
+//             }
+//             if(is360){
+//                 browserType = '360';
+//             }else{
+//                 // $('html').css("zoom",".80");
+//             }
+//         }else if (ua.match(/safari/) != null) {
+//             browserType = "Safari";
+//         }
+//         return browserType
+// }
 
 //禁止
 // function event_rf(ev){
@@ -122,8 +122,8 @@ var bann = getByClass('banner')[0],
     //
     oDiv = getByClass('topL')[0],      //四月草
     oSpan = oDiv.getElementsByTagName('span'),  
-
-    day = 0;                             //今天
+    day = 0,
+    https;                             //今天
 //end~~
 
 var zhh ={};
@@ -394,8 +394,6 @@ zhh.city =function (){
   //document.body.removeChild(go);
 }
 function ip_go(data){
-	if(getBrowserInfo() != null){
-
 	  var ct = data.address;
 	  var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
 	  ct = ct.match(reg)
@@ -415,7 +413,6 @@ function ip_go(data){
 		dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
 		document.body.appendChild(dScr);
 		// document.body.removeChild(dScr);
-	}
 }
 function dcb(data){
     var City = data.data.city,          //地区
@@ -424,7 +421,6 @@ function dcb(data){
         Str = data.data.forecast[day],
         re = /(\d)?[-<>]+(\d+)\级/g ,             
         ydata = [City, Str.type, Str.low, Str.high, Str.fengxiang ,Str.fengli]; //6个属性
-
 
         var date = new Date();
         var month = date.getMonth()+1+'月';
@@ -462,6 +458,9 @@ function dcb(data){
         oSpan[i].innerText=ydata[i].match(re);
       }                                    
     }
+    
+    https = 'ok'
+    Bot();
 }
 
 function getPos(){
@@ -482,15 +481,16 @@ function Bot(){
     var BxyChild = Bxy.children,
         Boff = document.documentElement.clientHeight ||document.body.clientHeight,
         Woff = Bxy.offsetWidth;
-    // var real = (Boff>401 && Woff>1121)?'block':'none';
     var real = (Boff>555 && Woff>1111)?'block':'none';
-    var arr = [BxyChild[0] , BxyChild[1] ,oDiv, oWeather]
+    var arr = [BxyChild[0] , BxyChild[1] , oWeather]
     for(var i= 0;i<arr.length;i++){
           arr[i].style.display=real;
     }
-	if(getBrowserInfo() === null){
-		arr[2].style.display = 'none';
-	}
+	if(https === 'ok'){
+		oDiv.style.display = real;
+	}else{
+        oDiv.style.display = 'none';
+    }
 }   
 // Bot();
 
