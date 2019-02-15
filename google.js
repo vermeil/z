@@ -138,7 +138,7 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
 //命名空间
 //ie 文本框内容 缓存清除
  zhh.two = function(data){     //搜索切换
-    var bf =(zhh.ipone)?"_self":"_bank";
+    var bf =(zhh.ipone)?"_self":"";
     if (!google) {
         window.open("https://www.baidu.com/s?wd=" + data,bf)
     } else {
