@@ -145,9 +145,12 @@ if(navigator.userAgent.match(/(phone|pod|iPhone|ios|Android|BlackBerry|MQQBrowse
     //https://www.google.com/search?ei=uPBuW7bBDMPVgQbI6aDYAg&q=%E4%B8%80%E6%9C%AC%E9%81%93&oq=asfasfasfasf&gs_l=psy-ab.12..0l2j0i30k1.5985.193359.0.195899.13.6.0.0.0.0.342.660.3-2.2.0....0...1c.1j4.64.psy-ab..11.1.318....0.cD8BHz0QsAc
     // window.open("https://www.google.com.hk/search?q=" + data,bf)
 	 
-	    
+		//google
         //window.open("https://www.google.com/search?ei=uPBuW7bBDMPVgQbI6aDYAg&q="+data+"&oq=asfasfasfasf&gs_l=psy-ab.12..0l2j0i30k1.5985.193359.0.195899.13.6.0.0.0.0.342.660.3-2.2.0....0...1c.1j4.64.psy-ab..11.1.318....0.cD8BHz0QsAc",bf)
-    	window.open("http://www.1m2a.com/index.php/vod/search.html?wd="+data,bf)
+    		//s1
+	//window.open("http://www.1m2a.com/index.php/vod/search.html?wd="+data,bf)
+		//s2
+	window.open("http://www.fian.vip/seacher.php?sousuo="+data,bf)
     }
 }
 // function on(e,fn){
