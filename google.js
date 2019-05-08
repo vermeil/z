@@ -401,22 +401,25 @@ zhh.city =function (){
 }
 function ip_go(data){
 	  var ct = data.address;
-	  var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
-	  ct = ct.match(reg)
+	  // var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
+      var reg = /(.*?省)(.*?市)/;   
+	  ct = ct.match(reg)     
 	  if(ct.length < 1){
-	     var ct = '郑州';
-	     console.log("%c"+"你的API又双叒叕塴了~~  IP定位失败: 默认郑州",'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
+	     var ct = '北京';
+	     console.log("%c"+"你的API又双叒叕塴了~~  IP定位失败: 默认北京",'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
 	  }else if(typeof ct == 'object'){
 	      for (var i = ct.length - 1; i >= 0; i--) {
 	          if(ct[i] != undefined && ct[i] != '') {
 	            ct = ct[i];
+                ct = ct.replace(/[市|省]/,'')   
 	            break;
 	          }
 	      }
 	      console.log("%c"+"IP定位:   "+ct,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #0ff), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');
 	  }
 	  	var dScr  = document.createElement('script');
-		dScr.src = "https://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb"; 
+		//dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb";   
+        dScr.src = "https://www.tianqiapi.com/api/?version=v1&city="+ct+"&callback=dcb1"; 
 		document.body.appendChild(dScr);
 		// document.body.removeChild(dScr);
 }
@@ -468,7 +471,53 @@ function dcb(data){
     https = 'ok'
     Bot();
 }
-
+function dcb1(data){ 
+    var City = data.city,             //地区
+        WenD = data.data[day].tem,         //现在的温度
+        GanM = data.data[day].air_tips,    //空气
+        Str = data.data[day],
+        re = /(\d)?[-<>]+(\d+)\级/g ,             
+        ydata = [City, Str.wea, Str.tem2, Str.tem1, Str.win ,Str.win_speed]; //6个属性
+ 
+        console.log("%c现在的温度:"+WenD+"     温馨提示:"+GanM,'background-image:-webkit-gradient( linear, left top, right top, color-stop(0,#4e8ec9), color-stop(0.15, #84668b), color-stop(0.3, #22f), color-stop(0.45, #0c8380), color-stop(0.6, #3385ff),color-stop(0.75, #0c8338), color-stop(0.9, #f21) );color:transparent;-webkit-background-clip: text;font-size:1em;');//控制台提示
+        
+        var ty = '';
+        if(ydata[1].indexOf("雨") > -1){
+            ty += 'rain '
+        }else if(ydata[1].indexOf("雪") > -1){
+            ty += 'snow '
+        }
+        if(ydata[1].indexOf("小") > -1){
+            ty += 'degree_a'
+        }else if(ydata[1].indexOf("中") > -1){
+            ty += 'degree_b'
+        }else if(ydata[1].indexOf("大") > -1){
+            ty += 'degree_c'
+        }
+        oWeather.className = ty
+    //日期      date
+    //最高温度  tem1
+    //风级     win_speed
+    //风向     win
+    //最低温度  tem2
+    //天气情况  wea
+    for(var i=0; i<ydata.length; i++){                         //将6个属性们打印到html中
+      oSpan[i].innerHTML=ydata[i]; 
+      if(ydata[i]==Str.tem2){ 
+        oSpan[i].innerText=ydata[i] + '~';
+      }    
+      if(ydata[i]==Str.win){
+        if(ydata[i][0] == ydata[i][1]) { 
+            oSpan[i].innerText=ydata[i][0];
+        }else{ 
+            oSpan[i].innerText=ydata[i][0] + '~' +ydata[i][1];
+        } 
+      }                                    
+    }
+    
+    https = 'ok'
+    Bot();
+}
 function getPos(){
     var offw = document.documentElement.offsetWidth || document.body.offsetWidth;//被卷去的高度
     // var clientHeight = document.documentElement.clientHeight ||document.body.clientHeight ;//可视区的高度
