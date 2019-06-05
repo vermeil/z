@@ -379,7 +379,7 @@ txt.onmousedown = function(tf){//ul
         }else{
             oUl.style.display='block';
         }
-        if(this.value==''){
+        if(this.value=='' || getByClass('none_new',bann).length > 0){
             if(!zhh.ipone)
             zhh.New();
         };
