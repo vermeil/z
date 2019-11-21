@@ -419,7 +419,7 @@ function ip_go(data){
 	  }
 	  	var dScr  = document.createElement('script');
 		//dScr.src = "http://wthrcdn.etouch.cn/weather_mini?city="+ct+"&callback=dcb";   
-        dScr.src = "https://www.tianqiapi.com/api/?version=v1&city="+ct+"&callback=dcb1"; 
+        dScr.src = "https://www.tianqiapi.com/api/?version=v1&cityid=101110101&appid=93973758&appsecret='BSuSZg9r'&city="+ct+"&callback=dcb1"; 
 		document.body.appendChild(dScr);
 		// document.body.removeChild(dScr);
 }
