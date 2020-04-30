@@ -393,12 +393,14 @@ function ul_none(){//隐藏ul
 
 
 //天气预报
-// zhh.city =function (){
+zhh.city = function (){
+//	2020.04.30
 //   var go  = document.createElement('script');
 //   go.src = "https://api.asilu.com/geo/?callback=ip_go"; 
 //   document.body.appendChild(go);
-//   //document.body.removeChild(go);
-// }
+	
+  //document.body.removeChild(go);
+}
 function ip_go(data){
 	  var ct = data.address;
 	  // var reg = /(.*?省)(.*?市)(.*?区)|(.*?县)/;  
