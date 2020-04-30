@@ -400,6 +400,9 @@ zhh.city = function (){
 //   document.body.appendChild(go);
 	
   //document.body.removeChild(go);
+	
+    https = 'ok'
+    Bot();
 }
 function ip_go(data){
 	  var ct = data.address;
